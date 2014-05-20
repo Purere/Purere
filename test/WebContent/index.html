@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       <title>Create a Sliding Navigation using CSS3 and Jquery</title>
+        <link rel="stylesheet" href="css/style.css"/>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	   <script type="text/javascript" src="js/jquery.js"></script>
+    </head> 
+	
+<body>
+
+ <ul id="toggle">
+    <li>
+        <div class="active"> <span class="menu-icons home"><i class="menu-icons fa fa-home"></i>  </span>
+             <h3>HOME</h3>
+        </div>
+    </li>
+	
+    <li>
+        <div><span class="menu-icons about"> <i class="fa fa-user"></i> </span>
+			<h3>ABOUT US</h3>
+				<span class="the-btn"><i class="fa fa-plus"></i></span> 
+					<div class="clear"></div>
+        </div>
+			<ul>
+				<li><a href="#">OUR TEAM</a></li>
+				<li><a href="#">OUR SERVICES</a></li>
+			</ul>
+    </li>
+	
+    <li>
+        <div><span class="menu-icons portfolio"><i class="fa fa-briefcase"></i> </span>
+             <h3>PORTFOLIO</h3>
+				<span class="the-btn"><i class="fa fa-plus"></i></span> 
+        </div>
+			<ul>
+				<li><a href="#">WEB DESIGN</a>
+				</li>
+				<li><a href="#">GRAPHIC DESIGN</a>
+				</li>
+			</ul>
+    </li>
+	
+    <li>
+        <div> <span class="menu-icons contact"><i class="fa fa-envelope"></i> </span>
+             <h3>CONTACT</h3>
+        </div>
+    </li>
+</ul>
+
+<script>
+$("#toggle > li > div").click(function () {
+    if (false == $(this).next().is(':visible')) {
+        $('#toggle ul').slideUp();        
+    }
+    
+    var $currIcon=$(this).find("span.the-btn > i")
+    
+    $("span.the-btn > i").not($currIcon).addClass('fa-plus').removeClass('fa-minus');
+    
+    $currIcon.toggleClass('fa-minus fa-plus');
+    
+    $(this).next().slideToggle();
+
+    $("#toggle > li > div").removeClass("active");
+    $(this).addClass('active');
+
+});
+</script>
+</body>
+</html>
+
+
